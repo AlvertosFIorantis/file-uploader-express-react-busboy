@@ -4,6 +4,8 @@ node_modules/
 
 !/BackEnd/uploads/.gitkeep
 
+/BackEnd/uploads/images/**
+
 #na min anaevazo fotografies exo gitkeep giati den boro na anevaso empty folder
 
 ### Node ###
