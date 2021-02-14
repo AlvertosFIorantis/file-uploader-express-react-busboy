@@ -85,7 +85,8 @@ label {
   z-index: 90;
   border-radius: 15px;
   display:flex;
-  justify-content:center;
+  flex-direction: column;
+  justify-content:space-around;
   align-items:center;
   height: 400px;
   width:800px; 
@@ -97,10 +98,14 @@ label {
 
 /* adi na exo to background tranasacparent sto input wrapper ftiaxno mia ali class oste na boro na alazo to background color tou div otan kano drag over kapio file */
 .input_wrapper_highlighted{
-  background:chartreuse
+  background: #2fdbb6
 }
 .input_wrapper_not_highlighted{
   background:transparent
+}
+
+.drag_and_drop_h1{
+  color: white;
 }
 
 

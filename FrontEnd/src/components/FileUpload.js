@@ -92,7 +92,11 @@ function FileUpload() {
           setHighlighted(false);
         }}
         >
+
+        <h1 className="drag_and_drop_h1">Drag & Drop your file </h1>
+
     <div className="file_display_button_wrapper">
+  
       
 <div id="file-chosen">{filename}</div>
 
