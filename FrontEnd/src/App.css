@@ -89,10 +89,20 @@ label {
   align-items:center;
   height: 400px;
   width:800px; 
-  background:transparent;
+  /* background:transparent; */
   border: 2px dashed #fad0c4;
 
 }
+
+
+/* adi na exo to background tranasacparent sto input wrapper ftiaxno mia ali class oste na boro na alazo to background color tou div otan kano drag over kapio file */
+.input_wrapper_highlighted{
+  background:chartreuse
+}
+.input_wrapper_not_highlighted{
+  background:transparent
+}
+
 
 .file_display_button_wrapper{
   display:flex;

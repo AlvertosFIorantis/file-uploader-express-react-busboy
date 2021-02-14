@@ -8,6 +8,7 @@ function FileUpload() {
   const [ResponseFromServer, setResponseFromServer] = useState(false);
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [highlighted,setHighlighted] = useState(false)
 
   const uploadFileHelperFunction = e => {
      e.preventDefault();
@@ -24,6 +25,7 @@ function FileUpload() {
 
   const uploadFileHelperFunctionDragNDrop = e => {
      e.preventDefault();
+     setHighlighted(false)
     try{
     setFile(e.dataTransfer.files[0]);
      
@@ -76,15 +78,22 @@ function FileUpload() {
   };
   return (
     <form className="container_form" onSubmit={onSubmit}> 
+    
     {/* vazo to onDragOver kai to ON drop gia na boro na kano drap and drip ta files mesa sto div an den thelo na xrisimopio to input box */}
     {/* boro na xrisimopio ta ala on Drag Enter kai ta lipa kai an alzo to backgorund tou dropzone na to kano prasino gia paradigma  sto mona dio apo ola ta dra evnets pou prepei na exo to e.preventDefault() einai to onDragOver kai onDrop KAI!!! na thimame oti gia na akno drag and drop files prepei na ta files na einia mesa sto idio folder me to APP !!!! */}
-  <div className="input_wrapper" onDragOver={(e) => {
+  <div className={`input_wrapper ${highlighted ? "input_wrapper_highlighted" : "input_wrapper_not_highlighted"}`} onDragOver={(e) => {
           e.preventDefault();
           
         }} onDrop={uploadFileHelperFunctionDragNDrop}
-         
+         onDragEnter={() => {
+          setHighlighted(true);
+        }}
+        onDragLeave={() => {
+          setHighlighted(false);
+        }}
         >
     <div className="file_display_button_wrapper">
+      
 <div id="file-chosen">{filename}</div>
 
 
