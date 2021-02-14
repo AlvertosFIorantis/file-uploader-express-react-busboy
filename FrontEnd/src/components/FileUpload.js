@@ -9,15 +9,34 @@ function FileUpload() {
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
-  const onChange = e => {
+  const uploadFileHelperFunction = e => {
+     e.preventDefault();
     try{
-setFile(e.target.files[0]);
+    setFile(e.target.files[0]);
+     
     setFilename(e.target.files[0].name);
+     console.log(filename)
     }catch(err){
       return
     }
     
   };
+
+  const uploadFileHelperFunctionDragNDrop = e => {
+     e.preventDefault();
+    try{
+    setFile(e.dataTransfer.files[0]);
+     
+    setFilename(e.dataTransfer.files[0].name);
+     console.log(filename)
+    }catch(err){
+      return
+    }
+    
+  };
+
+
+  
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -45,6 +64,7 @@ setFile(e.target.files[0]);
       setMessage(res.data.message)
       // resete the input
       setFilename('No file chosen')
+      setFile('')
       setUploadPercentage(0)
       setResponseFromServer(true)
       // oste na eksafaniszete meta apo 2 sec to repsonse apo to server oti egine epitixos to update
@@ -56,13 +76,22 @@ setFile(e.target.files[0]);
   };
   return (
     <form className="container_form" onSubmit={onSubmit}> 
-  <div className="input_wrapper">
-<span id="file-chosen">{filename}</span>
+    {/* vazo to onDragOver kai to ON drop gia na boro na kano drap and drip ta files mesa sto div an den thelo na xrisimopio to input box */}
+    {/* boro na xrisimopio ta ala on Drag Enter kai ta lipa kai an alzo to backgorund tou dropzone na to kano prasino gia paradigma  sto mona dio apo ola ta dra evnets pou prepei na exo to e.preventDefault() einai to onDragOver kai onDrop KAI!!! na thimame oti gia na akno drag and drop files prepei na ta files na einia mesa sto idio folder me to APP !!!! */}
+  <div className="input_wrapper" onDragOver={(e) => {
+          e.preventDefault();
+          
+        }} onDrop={uploadFileHelperFunctionDragNDrop}
+         
+        >
+    <div className="file_display_button_wrapper">
+<div id="file-chosen">{filename}</div>
 
 
 <label htmlFor="actual-btn">Choose File</label>
 
-<input onChange={onChange} type="file" id="actual-btn" hidden/>
+<input onChange={uploadFileHelperFunction} type="file" id="actual-btn" hidden/>
+</div>
 </div> 
 
 <div className="container_button">

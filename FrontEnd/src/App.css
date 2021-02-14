@@ -1,6 +1,7 @@
 *{
   margin:0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .fileUpload_container {
@@ -15,7 +16,8 @@
 
 .glass {
   background: white;
-  min-height: 80vh;
+  height: 80vh;
+  /* an valo edo min-height tote sto form container otan exo 100% sto min-height den doulevei gia kapio periergo logo den boro na exo min-height sto pareent element kai min-height sto child element */
   width: 70%;
   background: linear-gradient(
     to right bottom,
@@ -36,7 +38,7 @@
 .container_form{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   min-width: 100%;
   min-height: 100%;
   flex-direction: column;
@@ -62,24 +64,45 @@ label {
 }
 
 #file-chosen{
-  margin-left: 1rem;
+  min-height:50px;
+  min-width:300px;
+  background:white;
+
   font-family: sans-serif;
-  font-size:20p;
+  font-size:20px;
+  border-radius:15px  0px 0px 15px;
+  /* adistrofo border ratidus apo afto pou exo pao pano */
+  /* gia an boro na kano center to text eveal to diplay flex */
+  display: flex;
+  /* justify-content: center; */
+  padding-left: 20px;
+  /* exo valiue stin arxi tou css oti exo border-box oste to pardding na enotet me to width kai to height ! */
+  align-items: center;
 
 }
 
 .input_wrapper{
-  border: 1px solid #D3D3D3;
+  z-index: 90;
   border-radius: 15px;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
-  min-height:40px;
-  min-width:700px;
-  background:white;
+  height: 400px;
+  width:800px; 
+  background:transparent;
+  border: 2px dashed #fad0c4;
 
 }
 
+.file_display_button_wrapper{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  
+  
+
+}
 
 
 

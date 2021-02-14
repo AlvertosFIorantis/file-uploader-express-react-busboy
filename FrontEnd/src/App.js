@@ -4,11 +4,14 @@ import FileUpload from "./components/FileUpload"
 
 function App() {
   return (
+    
     <div className="fileUpload_container">
     <div className="glass">
       <FileUpload/>
+      
     </div>
     </div>
+
   );
 }
 
